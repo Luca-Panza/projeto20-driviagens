@@ -8,7 +8,7 @@ export function notFoundError(resource) {
 export function conflictError(resource) {
   return {
     type: "ConflictError",
-    message: `"${resource}" already exists!`,
+    message: `"${resource}" can't be the same!`,
   };
 }
 
