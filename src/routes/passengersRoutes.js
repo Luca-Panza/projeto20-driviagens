@@ -6,5 +6,6 @@ import { passengersController } from "../controllers/passengersController.js";
 const passengersRouter = Router();
 
 passengersRouter.post("/passengers", validateSchema(passengersSchema), passengersController.create);
+passengersRouter.get("/passengers/travels", passengersController.read);
 
 export default passengersRouter;
