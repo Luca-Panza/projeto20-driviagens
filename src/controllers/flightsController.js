@@ -9,4 +9,15 @@ async function create(req, res) {
   return res.sendStatus(httpStatus.CREATED);
 }
 
-export const flightsController = { create };
+async function read(req, res) {
+  const { origin, destination } = req.query;
+
+  const biggerDate = req.query["bigger-date"];
+  const smallerDate = req.query["smaller-date"];
+
+  const flights = await flightsService.read(origin, destination, smallerDate, biggerDate);
+
+  return res.status(httpStatus.OK).send(flights);
+}
+
+export const flightsController = { create, read };
